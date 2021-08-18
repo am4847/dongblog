@@ -1,4 +1,4 @@
-package come.dong.blog;
+package com.dong.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
