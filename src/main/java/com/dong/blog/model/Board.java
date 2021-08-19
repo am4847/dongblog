@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,7 +40,9 @@ public class Board {
 		@Lob //대용량 데이터를 쓸 때 사용
 		private String content;
 		
-		@ColumnDefault("0")
+		@Enumerated(EnumType.STRING)
+		private Category category; 
+		
 		private int count;
 		
 		@ManyToOne(fetch =  FetchType.EAGER) // Many = board, user =one 
