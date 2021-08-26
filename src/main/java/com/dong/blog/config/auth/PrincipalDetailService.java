@@ -12,6 +12,9 @@ import com.dong.blog.repository.UserRepository;
 @Service
 public class PrincipalDetailService implements UserDetailsService{
 	
+	
+	
+	
 	@Autowired
 	private UserRepository userRepository;
 	@Override

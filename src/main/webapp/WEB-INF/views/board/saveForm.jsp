@@ -20,7 +20,12 @@
 
 
 	</form>
-	<button id="btn-save" class="btn btn-primary">내용저장</button>
+	
+		<div style="display: flex; justify-content: space-between;">
+<!-- 	<div style="display: flex; align-items: flex-end; flex-direction: column;"> -->
+	<button class="btn btn-outline-dark"  onclick="javascript:btn_history()">돌아가기</button>
+	<button id="btn-save" class="btn btn-outline-dark"  >내용저장</button>
+	</div>
 </div>
 
 <script>
@@ -29,6 +34,9 @@
 		tabsize : 2,
 		height : 300
 	});
+	function btn_history(){
+		if(confirm('사이트에서 나가시겠습니까?\n변경사항이 저장되지 않을 수 있습니다.')==true)location.href="/";  
+			}
 </script>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>

@@ -36,11 +36,8 @@
 
 			</div>
 		</div>
-
-
-
-
 	</c:forEach>
+	
 	<ul class="pagination justify-content-center">
 		<c:choose>
 			<c:when test="${boards.first }">
@@ -62,7 +59,7 @@
 
 		</c:choose>
 
-
+	
 	</ul>
 </div>
 <%@ include file="layout/footer.jsp"%>

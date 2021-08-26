@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.table td, .table th{
+    padding: .75rem;
+    vertical-align: top;
+    border: 0px;
+    border-bottom: 1px solid #dee2e6;
+}
+.table{
+	 padding: .75rem;
+    vertical-align: top;
+	 border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    border-collapse: initial;
+
+}
+.categoryname {
+	font-size: 30px; 
+	font-weight: 500;
+}
+.category{
+	color: gray; 
+	font-size: 15px;
+}
+.replyUser {
+	width: 20%; 
+	border: 0px; 
+	padding: 1.25rem; 
+	text-align: center; 
+	font-weight: bolder;
+	padding-top: 10px; 
+	padding-bottom: 10px;
+}

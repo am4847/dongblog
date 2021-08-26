@@ -1,6 +1,7 @@
 package com.dong.blog.model;
 
 import java.sql.Timestamp;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,14 +16,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+@ToString
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -51,7 +57,9 @@ public class Board {
 		
 		
 		@OneToMany(mappedBy = "board",fetch =  FetchType.EAGER)
-		private List<Reply> reply;
+		@JsonIgnoreProperties({"board"})
+		@OrderBy("id desc")
+		private List<Reply> replys;
 		
 		
 		

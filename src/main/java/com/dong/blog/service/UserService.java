@@ -3,10 +3,15 @@ package com.dong.blog.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dong.blog.model.RoleType;
 import com.dong.blog.model.User;
 import com.dong.blog.repository.UserRepository;
 
@@ -19,11 +24,29 @@ public class UserService {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
+
+	
 	@Transactional
 	public void 회원가입(User user) {
-		
+		System.out.println("==================UserService::회원가입");
 		user.setPassword(encoder.encode(user.getPassword()));
 		userRepository.save(user);
+	}
+	@Transactional
+	public void 회원수정(User  requestUser) {
+		User user = userRepository.findById(requestUser.getId()).orElseThrow(()->new IllegalArgumentException("유저찾기 실패"));
+		if(!user.getRole().equals(RoleType.OAUTHUSER)) {
+		user.setEmail(requestUser.getEmail());
+		user.setPassword(encoder.encode(requestUser.getPassword()));
+		}
+		
+	}
+	@Transactional(readOnly = true)
+	public User 회원찾기(User requestUser) {
+		System.out.println("==================UserService::회원찾기");
+		User user=  userRepository.findByUsername(requestUser.getUsername()).orElseGet(()->null);
+		return user;
+		
 	}
 
 	

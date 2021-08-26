@@ -7,14 +7,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dong.blog.model.Board;
+import com.dong.blog.model.Reply;
 import com.dong.blog.model.User;
 import com.dong.blog.repository.BoardRepository;
+import com.dong.blog.repository.ReplyRepository;
 
 // 스프링이 컴포넌트 스캔을 통해서 bean에 등록을 해줌 . loc를 해준다.
 @Service
 public class BoardService {
 	@Autowired
 	private BoardRepository boardRepository;
+	
+	@Autowired
+	private ReplyRepository replyRepository;
 
 	@Transactional
 	public void 글쓰기(Board board, User user) {
@@ -27,7 +32,6 @@ public class BoardService {
 	@Transactional(readOnly = true)
 	public Page<Board> 글목록(Pageable pageable) {
 		return boardRepository.findAll(pageable);
-		
 	}
 	
 	@Transactional(readOnly = true)
@@ -48,6 +52,14 @@ public class BoardService {
 		board.setTitle(requestBoard.getTitle());
 		board.setContent(requestBoard.getContent());
 		board.setCategory(requestBoard.getCategory()); 
+	}
+
+	@Transactional
+	public void 댓글쓰기(int boardId, Reply reply , User user ) {
+		reply.setBoard(boardRepository.getById(boardId));
+		reply.setUser(user);
+		replyRepository.save(reply);
+		
 	}
 
 }

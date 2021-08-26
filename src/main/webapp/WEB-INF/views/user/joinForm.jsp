@@ -18,7 +18,12 @@
 
 
 	</form>
-	<button id="btn-save" class="btn btn-primary">회원가입</button>
+	<div style="display: flex; justify-content: space-between;">
+		<button class="btn btn-outline-dark"  onclick="location.href='/'">돌아가기</button>
+
+		<button id="btn-save" class="btn btn-outline-dark">회원가입</button>
+	</div>
+
 </div>
 <script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>

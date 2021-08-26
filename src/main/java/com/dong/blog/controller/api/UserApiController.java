@@ -4,11 +4,20 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.dong.blog.config.auth.PrincipalDetail;
 import com.dong.blog.dto.ResponseDto;
 import com.dong.blog.model.RoleType;
 import com.dong.blog.model.User;
@@ -21,7 +30,8 @@ public class UserApiController {
 	@Autowired
 	UserService userService;
 	
-
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	
 	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) {
@@ -30,6 +40,20 @@ public class UserApiController {
 		userService.회원가입(user);
 		System.out.println("=================UserApiController::save User::out");
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}
+	@PutMapping("/user")
+	public  ResponseDto<Integer> update(@RequestBody User user) {
+		userService.회원수정(user);
+		
+		
+		
+		  Authentication authentication = authenticationManager .authenticate(new
+		  UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		  SecurityContextHolder.getContext().setAuthentication(authentication);
+		
+		
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+		
 	}
 	
 	
