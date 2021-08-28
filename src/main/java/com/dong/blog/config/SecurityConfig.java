@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		System.out.println("==============SecurityConfig::configure");
 		auth.userDetailsService(principalDetailService).passwordEncoder(encodePWD());
 	}
 	@Override
@@ -46,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			http
 			.csrf().disable() //csrf 토큰 비활성화(테스트할 때 걸어두는게좋음)
 				.authorizeRequests()
-				.antMatchers("/","/auth/**","/js/**","/css/**","/image/**","/dummy/**")
+				.antMatchers("/","/auth/**","/js/**","/css/**","/image/**","/test/**","/check/**")
 				.permitAll()
 				.anyRequest()
 				.authenticated()

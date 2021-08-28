@@ -29,14 +29,19 @@ public class UserService {
 	@Transactional
 	public void 회원가입(User user) {
 		System.out.println("==================UserService::회원가입");
+		
 		user.setPassword(encoder.encode(user.getPassword()));
 		userRepository.save(user);
 	}
 	@Transactional
 	public void 회원수정(User  requestUser) {
-		User user = userRepository.findById(requestUser.getId()).orElseThrow(()->new IllegalArgumentException("유저찾기 실패"));
+		System.out.println("=============="+requestUser.toString());
+		System.out.println("=============="+requestUser.getNo());
+		System.out.println("=============="+userRepository.findById(requestUser.getNo()).toString());
+		User user = userRepository.findById(requestUser.getNo()).orElseThrow(()->new IllegalArgumentException("유저찾기 실패"));
 		if(!user.getRole().equals(RoleType.OAUTHUSER)) {
 		user.setEmail(requestUser.getEmail());
+		user.setUserName(requestUser.getUserName());
 		user.setPassword(encoder.encode(requestUser.getPassword()));
 		}
 		
@@ -44,9 +49,21 @@ public class UserService {
 	@Transactional(readOnly = true)
 	public User 회원찾기(User requestUser) {
 		System.out.println("==================UserService::회원찾기");
-		User user=  userRepository.findByUsername(requestUser.getUsername()).orElseGet(()->null);
+		User user=  userRepository.findByUserId(requestUser.getUserId()).orElseGet(()->null);
 		return user;
 		
+	}
+	
+	@Transactional(readOnly = true)
+	public int 아이디확인(User requestUser) {
+		System.out.println("==================UserService::아이디확인::"+requestUser.getUserId()+"\t"+userRepository.findByUserId(requestUser.getUserId()));
+		if(userRepository.findByUserId(requestUser.getUserId()).orElseGet(()->null) == null )return 1;
+		else return 0;
+	}
+	@Transactional(readOnly = true)
+	public int 별명확인(User requestUser) {
+		if(userRepository.findByUserName(requestUser.getUserName()).orElseGet(()->null) == null )return 1;
+		else return 0;
 	}
 
 	

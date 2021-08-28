@@ -20,7 +20,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@GetMapping("/")
-	public String index(Model model, @PageableDefault(size=3,sort = "id", direction = Sort.Direction.DESC) Pageable pageable ) {
+	public String index(Model model, @PageableDefault(size=3,sort = "no", direction = Sort.Direction.DESC) Pageable pageable ) {
 		 //@AuthenticationPrincipal PrincipalDetail principal
 		//System.out.println(principal.getUsername()+"\t"+principal.getPassword());
 		model.addAttribute("boards",boardService.글목록(pageable));
@@ -29,9 +29,9 @@ public class BoardController {
 		return "index";
 	}
 	
-	@GetMapping("/board/{id}")
-	public String findById(@PathVariable int id, Model model) {
-		model.addAttribute("board", boardService.글상세보기(id));
+	@GetMapping("/board/{no}")
+	public String findById(@PathVariable int no, Model model) {
+		model.addAttribute("board", boardService.글상세보기(no));
 		System.out.println("===========BoardController::findById::in");
 		return "board/detail";
 		
@@ -42,10 +42,12 @@ public class BoardController {
 		return "board/saveForm";
 	}
 	
-	@GetMapping("/board/{id}/updateForm")
-	public String updateForm(@PathVariable int id, Model model) {
+	@GetMapping("/board/{no}/updateForm")
+	public String updateForm(@PathVariable int no, Model model) {
 		System.out.println("***********************BoardController::updateForm");
-		model.addAttribute("board",boardService.글상세보기(id));
+		model.addAttribute("board",boardService.글상세보기(no));
 		return "board/updateForm";
 	}
+	
+	
 }

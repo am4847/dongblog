@@ -11,6 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,12 +44,10 @@ public class UserApiController {
 	}
 	@PutMapping("/user")
 	public  ResponseDto<Integer> update(@RequestBody User user) {
+		System.out.println("==============UserApiController::update");
 		userService.회원수정(user);
-		
-		
-		
 		  Authentication authentication = authenticationManager .authenticate(new
-		  UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		  UsernamePasswordAuthenticationToken(user.getUserId(), user.getPassword()));
 		  SecurityContextHolder.getContext().setAuthentication(authentication);
 		
 		
@@ -56,5 +55,16 @@ public class UserApiController {
 		
 	}
 	
+	@PostMapping("/check/userId")
+	public int chkId(@RequestBody User requestUser) {
+	 return userService.아이디확인(requestUser);
+	
+		
+	}
+	
+	@PostMapping("/check/userName")
+	public int chkUserName(@RequestBody User requestUser) {
+		return userService.별명확인(requestUser);
+	}
 	
 }

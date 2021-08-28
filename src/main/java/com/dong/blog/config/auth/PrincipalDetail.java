@@ -15,10 +15,9 @@ import lombok.Getter;
 public class PrincipalDetail implements UserDetails{
 	private User user;
 
-
-
 	public PrincipalDetail(User user) {
 		this.user = user;
+		System.out.println("==============PrincipalDetail"+user.toString());
 	}
 
 	@Override
@@ -26,12 +25,12 @@ public class PrincipalDetail implements UserDetails{
 		
 		return user.getPassword();
 	}
-
 	@Override
 	public String getUsername() {
 		
-		return user.getUsername();
+		return user.getUserId();
 	}
+	
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -63,5 +62,7 @@ public class PrincipalDetail implements UserDetails{
 		collectors.add(()->"ROLE_"+user.getRole());
 		return collectors;
 	}
+
+	
 	
 }

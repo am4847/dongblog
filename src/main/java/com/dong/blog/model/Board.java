@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -38,7 +39,7 @@ public class Board {
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private int id;
+		private int no;
 		
 		@Column(nullable = false, length = 100)
 		private String title;
@@ -52,13 +53,13 @@ public class Board {
 		private int count;
 		
 		@ManyToOne(fetch =  FetchType.EAGER) // Many = board, user =one 
-		@JoinColumn(name = "userId")
+		@JoinColumn(name = "userNo")
 		private User user;
 		
 		
-		@OneToMany(mappedBy = "board",fetch =  FetchType.EAGER)
+		@OneToMany(mappedBy = "board",fetch =  FetchType.EAGER, cascade = CascadeType.REMOVE)
 		@JsonIgnoreProperties({"board"})
-		@OrderBy("id desc")
+		@OrderBy("no desc")
 		private List<Reply> replys;
 		
 		

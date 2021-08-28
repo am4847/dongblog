@@ -24,11 +24,11 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="2" style="font-size: 20px; ">작성자: ${board.user.username }</td>
+							<td colspan="2" style="font-size: 20px; ">작성자: ${board.user.userName }</td>
 						</tr>
 						<tr>
 							<td style="font-size: 20px;">카테고리: ${board.category }</td>
-							<td style="text-align: right;padding: 0;"><a style="font-size: 25px;" href="/board/${board.id }" class="btn btn-outline-dark">상세보기</a></td>
+							<td style="text-align: right;padding: 0;"><a style="font-size: 25px;" href="/board/${board.no }" class="btn btn-outline-dark">상세보기</a></td>
 						</tr>
 
 					</tbody>

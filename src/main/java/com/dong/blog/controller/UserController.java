@@ -152,7 +152,8 @@ public class UserController {
 			System.out.println(defaultPasswordKey);
 			User kakaoUser = User
 						.builder()
-						.username(kakaoProfile.getKakao_account().getEmail().substring(0, kakaoProfile.getKakao_account().getEmail().indexOf("@"))+"_"+kakaoProfile.getId())
+						.userId(kakaoProfile.getId().toString())
+						.userName(kakaoProfile.getKakao_account().getProfile().getNickname().toString())
 						.password(defaultPasswordKey)
 						.email(kakaoProfile.getKakao_account().getEmail())
 						.role(RoleType.OAUTHUSER)
@@ -166,7 +167,7 @@ public class UserController {
 			  // 로그인처리
 			
 			Authentication authentication = authenticationManager .authenticate(new
-			UsernamePasswordAuthenticationToken(kakaoUser.getUsername(), kakaoUser.getPassword()));
+			UsernamePasswordAuthenticationToken(kakaoUser.getUserId() , kakaoUser.getPassword()));
 			System.out.println("***************************************************333333");
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			System.out.println("***************************************************4444");

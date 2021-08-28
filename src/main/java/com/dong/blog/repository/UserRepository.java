@@ -12,7 +12,9 @@ import com.dong.blog.model.User;
 // DAO
 // 자동으로 bean 등록되기 때문에 @Repository 생략가능
 public interface UserRepository extends JpaRepository<User, Integer> {
-	Optional<User> findByUsername(String username);
+	Optional<User> findByUserId(String UserId);
+
+	Optional<User> findByUserName(String userName);
 }
 ////JPA Naming 전략
 //	User findByUsernameAndPassword(String username, String password);

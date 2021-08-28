@@ -24,7 +24,7 @@
 		<div style="display: flex; justify-content: space-between;">
 <!-- 	<div style="display: flex; align-items: flex-end; flex-direction: column;"> -->
 	<button class="btn btn-outline-dark"  onclick="javascript:btn_history()">돌아가기</button>
-	<button id="btn-save" class="btn btn-outline-dark"  >내용저장</button>
+	<button id="btn-save" class="btn btn-outline-success"  >내용저장</button>
 	</div>
 </div>
 

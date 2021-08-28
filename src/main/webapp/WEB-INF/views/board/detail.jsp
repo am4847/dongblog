@@ -33,11 +33,11 @@
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td class="text-align-left text-indent" colspan="6">${board.user.username }</td>
+					<td class="text-align-left text-indent" colspan="6">${board.user.userName }</td>
 				</tr>
 				<tr>
 					<th>NO</th>
-					<td id="id">${board.id }</td>
+					<td id="no">${board.no }</td>
 					<th>작성일</th>
 					<td><fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd hh:mm" /></td>
 					<th>조회수</th>
@@ -55,8 +55,8 @@
 	<div class="d-flex  justify-content-between">
 		<button class="btn btn-outline-dark" onclick="location.href='/'">돌아가기</button>
 		<div>
-			<c:if test="${board.user.id==principal.user.id }">
-				<a href="/board/${board.id }/updateForm" class="btn btn-outline-dark">수정</a>
+			<c:if test="${board.user.no==principal.user.no }">
+				<a href="/board/${board.no }/updateForm" class="btn btn-outline-dark">수정</a>
 				<button id="btn-delete" class="btn btn-outline-dark">삭제</button>
 			</c:if>
 		</div>
@@ -64,46 +64,47 @@
 	<br />
 	<hr />
 
-	
+
 	<div class="card mb-2">
 		<div class="card-header bg-light">
 			<i class="fa fa-comment fa"></i> 댓글
 		</div>
-		<input type="hidden" id="userId" value="${principal.user.username }">
+		<input type="hidden" id="userNo" value="${principal.user.no }">
 		<div class="card-body">
-				<div class="form-inline ml-3 mb-2" style="font-weight: bolder; font-size: 19px;">${principal.user.username}</div>
-			<div class="d-flex" style="padding:0rem 1.25rem;">
-				<textarea id="reply-content" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="댓글을 남겨보세요" ></textarea>
-				<div class="d-flex flex-column ml-1 mt-1" style="width: 15%;height: 100%;">
+			<div class="form-inline ml-3 mb-2" style="font-weight: bolder; font-size: 19px;">${principal.user.userName}</div>
+			<div class="d-flex" style="padding: 0rem 1.25rem;">
+				<textarea id="reply-content" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="댓글을 남겨보세요"></textarea>
+				<div class="d-flex flex-column ml-1 mt-1" style="width: 15%; height: 100%;">
 					<button id="btn-reply-save" type="button" class="btn btn-outline-dark  " onClick="javascript:addReply();" style="height: 85px;">등록</button>
 				</div>
 			</div>
-			<hr/>
+			<hr />
 			<ul id="reply-box" class="list-group list-group-flush">
 				<c:forEach var="reply" items="${board.replys }">
-					<li id="reply-list" class="list-group-item border-0 " style="border: 0; padding: .15rem 1.25rem;">
+					<li id="reply-${reply.no }" class="list-group-item border-0 " style="border: 0; padding: .15rem 1.25rem;">
 						<!-- ******************************************************************** -->
 						<div class="flex-fill">
 							<div class="card flex-row ">
-								<div class="card-header replyUser ">${reply.user.username }</div>
-								<div class="card-body d-flex  justify-content-between " style="padding: 10px;">
+								<div class="card-header replyUser ">${reply.user.userName }</div>
+								<div class="card-body d-flex  justify-content-between reply-div-${reply.no }" style="padding: 10px;">
 									<p class="card-text mb-0">${reply.content }</p>
 									<div>
 										<font color="lightgray" size="2"><fmt:formatDate value="${reply.createDate }" pattern="yyyy.MM.dd hh:mm" /></font>
-										<c:if test="${principal.user.id==board.user.id || principal.user.id ==reply.user.id }">
-											<button class="btn btn-light badge">삭제</button>
+										<c:if test="${principal.user.no ==reply.user.no }">
+											<button onclick="index.replyUpdateForm(${reply.no },'${reply.content }')"  class="btn btn-light badge ">수정</button>
 										</c:if>
+										<c:if test="${principal.user.no==board.user.no || principal.user.no==reply.user.no }">
 
+											<button onclick="index.replyDeleteByNo(${board.no},${reply.no })" class="btn btn-light badge">삭제</button>
+										</c:if>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
 				</c:forEach>
+				
 			</ul>
-
-
-
 		</div>
 	</div>
 

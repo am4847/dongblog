@@ -1,13 +1,13 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
-<div class="container" style="max-width: 700px;">
+<div class="container" style="max-width: 500px;">
 	<form action="/auth/loginProc" method="post">
 		<div class="form-group">
-			<label for="username">Username :</label> <input name="username" type="text" class="form-control" placeholder="Enter Username" id="username">
+			<label for="username">ID </label> <input name="username" type="text" class="form-control" placeholder="Enter userId" id="username">
 		</div>
 		<div class="form-group">
-			<label for="password">Password:</label> <input name="password" type="password" class="form-control" placeholder="Enter Password" id="password">
+			<label for="password">Password </label> <input name="password" type="password" class="form-control" placeholder="Enter Password" id="password">
 		</div>
 		<div style="display: flex; justify-content: space-between;">
 			<button class="btn btn-outline-dark" onclick="location.href='/'">돌아가기</button>
@@ -23,4 +23,5 @@
 
 </div>
 <script src="/js/user.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/user.css">
 <%@ include file="../layout/footer.jsp"%>
