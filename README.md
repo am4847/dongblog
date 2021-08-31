@@ -49,5 +49,5 @@ SpringFramework보다 라이브러리 활용도가 한층 높아진 Spring Tool 
 
 
 - 시연영상: <br/>
-<video src='https://user-images.githubusercontent.com/48432253/131433021-3bed2360-3851-4dca-8b69-2a3e4602f75c.mp4' width='600px' controls autoplay> <br/>
+<video src='https://user-images.githubusercontent.com/48432253/131438980-2ff1f083-35d5-4cec-8abd-44fef326f6b0.mp4' width='600px' controls autoplay> <br/>
 
