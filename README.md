@@ -1,7 +1,7 @@
 # dongblog
 -	프로젝트 설명: <br/>
-JPA, STS(SpringframeworkSecurity, BootApp) 기본적인 로직과 사용이유와 활용방법을 숙지하기 
-위해 카카오Tistory를 보고 개인블로그를 구현해보고자하여 시행하게된 개인 프로젝트<br/>
+JPA, STS(SpringframeworkSecurity, BootApp) 기본적인 로직과 사용이유와 활용방법을 숙지하기 위한 프로젝트 <br/>
+카카오Tistory를 보고 개인블로그를 구현해보고자하여 시행하게된 개인 프로젝트<br/>
 
 -	개발 환경/기술:	<br/>
 Front - 	Bootstrap, Jsp, JS, JQuery, Ajax<br/>
@@ -19,6 +19,8 @@ Lombok를 활용하여 생성자와 getter,setter의 시각적인 안정성 활�
 OAuth2.0으로 로그인할 수 있는 환경구축 <br/>
 Login.jsp, Join.jsp, principalDetail.java, principalDetailService.java, 해쉬encoder() 등 
 SpringframeworkSecurity안정성만 활용하고 기타 view, model, DAO 직접 구축 <br/>
+
+-	구현내용상세: <br/>
 
 
 -	성과: <br/>
