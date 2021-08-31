@@ -24,15 +24,24 @@ Login.jsp, Join.jsp, principalDetail.java, principalDetailService.java, 해쉬en
 SpringframeworkSecurity안정성만 활용하고 기타 view, model, DAO 직접 구축 <br/>
 
 -	구현내용상세: <br/>
-    src/main/java/com/dong/blog/config/ STSSecurity 인증에 관련된 설정파일과 Security형식으로 재정의된 Model과 Service <br/>
-    src/main/java/com/dong/blog/controller/ page를 다이렉트해주는 일반 Controller와 정보를 변경할 때 받는 ApiController <br/>
-    src/main/java/com/dong/blog/dto/ Data를 주고 받을 때 깔끔하게 받기 위해 새롭게 정의하여 처리 <br/>
-    src/main/java/com/dong/blog/handler/ 각 Exception 상황마다 이벤트 메세지를 받고 page전환해주는 Controller <br/>
-    src/main/java/com/dong/blog/model/ JPA로 구현된 model <br/>
-    src/main/java/com/dong/blog/repository/ JPA로 구현된 Repository, JPA에 없는 dao는 직접 구현 <br/>
-    src/main/java/com/dong/blog/service/ Controller에서 Repository로 연결될 때 정보의 부정합의 방지를 위해 트랜젝션처리 <br/>
-    src/main/resources/static/js/ JQuery를 활용한 Button의 이벤트 function처리, Json과 Ajax를 활용한 data 전송,Ajax의 비동기통신를 활용한 refresh없는 button설정<br/>
-    src/main/webapp/WEB-INF/views/  Springboot4와 다양한 tag 라이브러리(jstl, el,springframeworksecurity) 활용하여 jsp구축<br/>
+    src/main/java/com/dong/blog/config/ STSSecurity<br/> 
+    인증에 관련된 설정파일과 Security형식으로 재정의된 Model과 Service <br/>
+    src/main/java/com/dong/blog/controller/ <br/>
+    page를 다이렉트해주는 일반 Controller와 정보를 변경할 때 받는 ApiController <br/>
+    src/main/java/com/dong/blog/dto/ <br/>
+    Data를 주고 받을 때 깔끔하게 받기 위해 새롭게 정의하여 처리 <br/>
+    src/main/java/com/dong/blog/handler/ <br/>
+    각 Exception 상황마다 이벤트 메세지를 받고 page전환해주는 Controller <br/>
+    src/main/java/com/dong/blog/model/ <br/>
+    JPA로 구현된 model <br/>
+    src/main/java/com/dong/blog/repository/ <br/>
+    JPA로 구현된 Repository, JPA에 없는 dao는 직접 구현 <br/>
+    src/main/java/com/dong/blog/service/ <br/>
+    Controller에서 Repository로 연결될 때 정보의 부정합의 방지를 위해 트랜젝션처리 <br/>
+    src/main/resources/static/js/ <br/>
+    JQuery를 활용한 Button의 이벤트 function처리, Json과 Ajax를 활용한 data 전송,Ajax의 비동기통신를 활용한 refresh없는 button설정<br/>
+    src/main/webapp/WEB-INF/views/  <br/>
+    Springboot4와 다양한 tag 라이브러리(jstl, el,springframeworksecurity) 활용하여 jsp구축<br/>
 
 -	성과: <br/>
 Json방식으로 Data를 보내는 이유와 Ajax로 비동기 통신의 이유, ORM(JPA)의 높은 활용성 인지  <br/>
