@@ -8,7 +8,7 @@ Front - 	Bootstrap, Jsp, JS, JQuery, Ajax<br/>
 Back - 	Java, Jpa, stsBootApp, Mysql(DB)<br/>
 Tools - 	STS4, Lombok, Github, SpringframeworkSecurity(인증), OAuth2.0(kakao인증) <br/>
 
--	-	구현내용: <br/>
+-	구현내용: <br/>
 Bootstrap과 Jsp를 활용해 FrontPage 생성 <br/>
 Json방식의 Data를 Ajax를 통한 전송, Ajax를 활용한 비동기 댓글 구축 <br/>
 Jpa를 활용한 model테이블구축 <br/>
