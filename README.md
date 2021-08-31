@@ -1,5 +1,5 @@
 # dongblog
--프로젝트 설명:
+-	:	<br/>
 JPA, STS(SpringframeworkSecurity, BootApp) 기본적인 로직과 사용이유와 활용방법을 숙지하기 위한 프로젝트 <br/>
 카카오Tistory를 보고 개인블로그를 구현해보고자하여 시행하게된 개인 프로젝트<br/>
 
