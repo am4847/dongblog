@@ -24,7 +24,7 @@ Login.jsp, Join.jsp, principalDetail.java, principalDetailService.java, 해쉬en
 SpringframeworkSecurity안정성만 활용하고 기타 view, model, DAO 직접 구축 <br/>
 
 -	구현내용상세: <br/>
-   - src/main/java/com/dong/blog/config/ <br/> 
+   *  src/main/java/com/dong/blog/config/ <br/> 
     STSSecurity인증에 관련된 설정파일과 Security형식으로 재정의된 Model과 Service <br/>
     src/main/java/com/dong/blog/controller/ <br/>
     page를 다이렉트해주는 일반 Controller와 정보를 변경할 때 받는 ApiController <br/>
