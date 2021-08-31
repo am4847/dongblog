@@ -20,7 +20,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@GetMapping("/")
-	public String index(Model model, @PageableDefault(size=3,sort = "no", direction = Sort.Direction.DESC) Pageable pageable ) {
+	public String index(Model model, @PageableDefault(size=4,sort = "createDate", direction = Sort.Direction.DESC) Pageable pageable ) {
 		 //@AuthenticationPrincipal PrincipalDetail principal
 		//System.out.println(principal.getUsername()+"\t"+principal.getPassword());
 		model.addAttribute("boards",boardService.글목록(pageable));
@@ -31,6 +31,7 @@ public class BoardController {
 	
 	@GetMapping("/board/{no}")
 	public String findById(@PathVariable int no, Model model) {
+		boardService.조회수올리기(no);
 		model.addAttribute("board", boardService.글상세보기(no));
 		System.out.println("===========BoardController::findById::in");
 		return "board/detail";

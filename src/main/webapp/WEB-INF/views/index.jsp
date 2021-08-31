@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="layout/header.jsp"%>
-<div class="container" style="max-width: 700px; ">
+<div class="container" style="max-width: 500px; ">
 	<c:forEach var="board" items="${boards.content }">
 		<%-- <div class="card m-2">
 			<div class="card-body">
@@ -13,22 +13,25 @@
 
 			</div>
 		</div> --%>
-		<div class="card m-2" >
+		<div class="card m-2 btn-light "  onclick="location.href='/board/${board.no }'">
 			<div class="card-body" style="padding: 10px">
-				<table class="table table-borderless">
+				<table class="table table-borderless mb-0">
 					<thead class="thead-dark">
 						<tr>
-							<th colspan="1" style="font-size: 20px;">${board.title }</th>
-							<th style="text-align: right; font-size: 12px;"><fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd " /></th>
+							<th colspan="3" style="font-size: 20px;  width: 90%;" >${board.title }</th>
+							<th style="text-align: right; font-size: 12px;  width: 10%;"><fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd " /></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="2" style="font-size: 20px; ">작성자: ${board.user.userName }</td>
+							<td  style="font-size: 20px;  width: 15%; font-family: fantasy; ">WIRTER</td>
+							<td style="font-size: 20px; padding-left:0px; width: 35%; ">${board.user.userName }</td>
+							<td style="font-size: 20px; width: 15%;  font-family: fantasy;"> CATEGORY</td>
+							<td style="font-size: 20px; padding-left:0px; width: 35%;">${board.category }</td>
 						</tr>
 						<tr>
-							<td style="font-size: 20px;">카테고리: ${board.category }</td>
-							<td style="text-align: right;padding: 0;"><a style="font-size: 25px;" href="/board/${board.no }" class="btn btn-outline-dark">상세보기</a></td>
+							
+						
 						</tr>
 
 					</tbody>

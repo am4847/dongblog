@@ -59,7 +59,7 @@ let index = {
 		}).done(function(response){
 			console.log(response);
 			alert('회원가입이 완료되었습니다.');
-			location.href="/";
+			location.href="/auth/loginForm";
 			
 		}).fail(function(error){
 			
@@ -150,10 +150,10 @@ let index = {
 		}, checkNameDB: function() {
 			console.log(buttonType+" "+checkId);
 			let userName = $('#userName').val();
-			var regExp  = /^([a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]).{2,10}$/;
+			var regExp  = /^([a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]).{2,9}$/;
 		 	 if( !regExp.test(userName) ) {
 			$("#userName").css("background-color", "#FFCECE");
-			$("#userNameComment").text("3-10 특수문자 제외");
+			$("#userNameComment").text("3-8 특수문자 제외");
 			$("#userNameComment").css("color", "#ff4242");
          	checkName=0;
            
@@ -182,6 +182,7 @@ let index = {
 						checkName=1;
 						$("#userName").css("background-color", "#B0F6AC");
 						$("#userNameComment").text("");
+						checkButtonIsable();
 					}
 						
 					checkButtonIsable();

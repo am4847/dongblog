@@ -38,7 +38,7 @@ public class UserService {
 		System.out.println("=============="+requestUser.toString());
 		System.out.println("=============="+requestUser.getNo());
 		System.out.println("=============="+userRepository.findById(requestUser.getNo()).toString());
-		User user = userRepository.findById(requestUser.getNo()).orElseThrow(()->new IllegalArgumentException("유저찾기 실패"));
+		User user = userRepository.findById(requestUser.getNo()).orElseThrow(()->new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 		if(!user.getRole().equals(RoleType.OAUTHUSER)) {
 		user.setEmail(requestUser.getEmail());
 		user.setUserName(requestUser.getUserName());

@@ -245,7 +245,6 @@ function updateReply(replyNo){
 
 		}).done(function(response) {
 			console.log(response);
-			alert('댓글수정이 완료되었습니다.');
 			ReplyDraw(findReplyByNo(replyNo));
 		
 		}).fail(function(error) {

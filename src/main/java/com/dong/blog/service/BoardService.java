@@ -37,10 +37,11 @@ public class BoardService {
 		return boardRepository.findAll(pageable);
 	}
 	
-	@Transactional(readOnly = true)
+	@Transactional
 	public Board 글상세보기(int no) {
+
 		System.out.println("==============BoardService::글상세보기::in");
-		return boardRepository.findById(no).orElseThrow(()->new IllegalArgumentException("글 상세보기 실패"));
+		return  boardRepository.findById(no).orElseThrow(()->new IllegalArgumentException("찾을 수 없는 게시글입니다."));
 		
 	}
 
@@ -51,7 +52,7 @@ public class BoardService {
 	}
 	@Transactional
 	public void 수정하기(Board requestBoard) {
-		Board board = boardRepository.findById(requestBoard.getNo()).orElseThrow(()->new IllegalArgumentException("수정글찾기 실패"));
+		Board board = boardRepository.findById(requestBoard.getNo()).orElseThrow(()->new IllegalArgumentException("부적합한 접근입니다."));
 		board.setTitle(requestBoard.getTitle());
 		board.setContent(requestBoard.getContent());
 		board.setCategory(requestBoard.getCategory()); 
@@ -73,7 +74,7 @@ public class BoardService {
 	public void 댓글수정하기(Reply requestReply) {
 		System.out.println("============BoardService::댓글수정하기");
 		System.out.println(requestReply.getNo()+"\t"+requestReply.getContent());
-		Reply reply = replyRepository.findById(requestReply.getNo()).orElseThrow(()->new IllegalArgumentException("수정댓글찾기 실패"));
+		Reply reply = replyRepository.findById(requestReply.getNo()).orElseThrow(()->new IllegalArgumentException("찾을수 없는 댓글입니다."));
 		
 		reply.setContent(requestReply.getContent());
 
@@ -84,9 +85,15 @@ public class BoardService {
 	public Reply 댓글보기(Reply reply) {
 		
 
-		return replyRepository.findById(reply.getNo()).orElseThrow(()->new IllegalArgumentException("댓글찾기 실패")) ;
+		return replyRepository.findById(reply.getNo()).orElseThrow(()->new IllegalArgumentException("찾을수 없는 댓글입니다.")) ;
 		
 		
+	}
+	
+	@Transactional
+	public void 조회수올리기(int no) {
+		Board board = boardRepository.findById(no).orElseThrow(()->new IllegalArgumentException("찾을 수 없는 게시글입니다."));
+		board.setCount(board.getCount()+1);	
 	}
 
 }

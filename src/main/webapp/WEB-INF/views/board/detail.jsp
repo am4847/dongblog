@@ -75,7 +75,7 @@
 			<div class="d-flex" style="padding: 0rem 1.25rem;">
 				<textarea id="reply-content" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="댓글을 남겨보세요"></textarea>
 				<div class="d-flex flex-column ml-1 mt-1" style="width: 15%; height: 100%;">
-					<button id="btn-reply-save" type="button" class="btn btn-outline-dark  " onClick="javascript:addReply();" style="height: 85px;">등록</button>
+					<button id="btn-reply-save" type="button" class="btn btn-outline-dark  "  style="height: 85px;">등록</button>
 				</div>
 			</div>
 			<hr />
