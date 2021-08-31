@@ -9,12 +9,15 @@ Back - 	Java, Jpa, stsBootApp, Mysql(DB)<br/>
 Tools - 	STS4, Lombok, Github, SpringframeworkSecurity(인증), OAuth2.0(kakao인증) <br/>
 
 -	구현내용: <br/>
+Front<br/>
 Bootstrap과 Jsp를 활용해 FrontPage 생성 <br/>
 Json방식의 Data를 Ajax를 통한 전송, Ajax를 활용한 비동기 댓글 구축 <br/>
+Back<br/>
 Jpa를 활용한 model테이블구축 <br/>
 Jparepository를 활용한 CRUD repository DAO구축 <br/>
 정보의 무결성을 생각하여 transaction처리한 Service구축 <br/>
 정보의 변경을 담당하는 ApiController와 page의 다이렉팅해주는 Controller구축 <br/>
+Tools<br/>
 Lombok를 활용하여 생성자와 getter,setter의 시각적인 안정성 활용 <br/>
 OAuth2.0으로 로그인할 수 있는 환경구축 <br/>
 Login.jsp, Join.jsp, principalDetail.java, principalDetailService.java, 해쉬encoder() 등 
