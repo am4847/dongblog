@@ -12,17 +12,27 @@ import com.dong.blog.model.Reply;
 import com.dong.blog.model.User;
 import com.dong.blog.repository.BoardRepository;
 import com.dong.blog.repository.ReplyRepository;
-import com.dong.blog.repository.UserRepository;
+
 
 // 스프링이 컴포넌트 스캔을 통해서 bean에 등록을 해줌 . loc를 해준다.
 @Service
 public class BoardService {
+	
 	@Autowired
 	private BoardRepository boardRepository;
 	
 	@Autowired
 	private ReplyRepository replyRepository;
 	
+	
+	
+	
+
+//	public BoardService(BoardRepository boardRepository, ReplyRepository replyRepository) {
+//
+//		this.boardRepository = boardRepository;
+//		this.replyRepository = replyRepository;
+//	}
 
 	@Transactional
 	public void 글쓰기(Board board, User user) {

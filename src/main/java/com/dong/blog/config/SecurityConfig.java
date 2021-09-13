@@ -12,11 +12,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.dong.blog.config.auth.PrincipalDetailService;
+import com.dong.blog.config.oauth.principalOauthUserService;
+
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	private principalOauthUserService principalOauthUserService;
 	
 	@Autowired
 	private PrincipalDetailService principalDetailService;
@@ -55,7 +60,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/auth/loginForm")
 				.loginProcessingUrl("/auth/loginProc")
-				.defaultSuccessUrl("/");
+				.defaultSuccessUrl("/")
+			.and()
+				.oauth2Login()
+				.loginPage("/auth/loginForm")
+				.userInfoEndpoint()
+				.userService(principalOauthUserService);
+				
+				
+				
  
 
 

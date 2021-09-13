@@ -58,4 +58,5 @@ public class UserApiController {
 		return userService.별명확인(requestUser);
 	}
 	
+	
 }

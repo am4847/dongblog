@@ -13,12 +13,26 @@
 			<button class="btn btn-outline-dark" onclick="location.href='/'">돌아가기</button>
 
 			<div>
-				<a href="https://kauth.kakao.com/oauth/authorize?client_id=a51945892037291a79698727ae1fad25&redirect_uri=http://localhost:8000/auth/kakao/callback&response_type=code"> 
-				<img height="40" src="/image/kakao_login_button.png"></a>
+
 				<button id="btn-login" class="btn btn-outline-dark">로그인</button>
 			</div>
 		</div>
+		<hr />
+		<div class="card mb-2">
+			<div class="card-header bg-light">
+				<i class="fa fa-comment fa"></i> 소셜로그인
+			</div>
+			<div class="card-body ">
+				<div class="d-flex justify-content-between ">
+					<a href="/oauth2/authorization/google"> <img height="40"  width="135"   src="/image/google_login_button.png"></a>
+					<a href="/oauth2/authorization/kakao"> <img height="40"  width="135" src="/image/kakao_login_button.png"></a>
+					<a href="/oauth2/authorization/naver"> <img height="40"  width="135" src="/image/naver_login_button.png"></a>
+				</div>
+			
 
+
+			</div>
+		</div>
 	</form>
 
 </div>

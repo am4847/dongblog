@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.dong.blog.config.auth.PrincipalDetail;
 import com.dong.blog.model.KakaoProfile;
 import com.dong.blog.model.OAuthToken;
 import com.dong.blog.model.RoleType;
@@ -63,14 +65,14 @@ public class UserController {
 			return "user/detail";
 		}
 		
-		@GetMapping("/auth/kakao/callback")
-		public String kakaoCallback(String code) {
-			
-			userService.kakao회원처리( 
-					userService.user정보받기( 
-							userService.kakao토큰받기(code)));
-		
-		
-			return "redirect:/";
-		}
+	
+		/*
+		 * @GetMapping("/auth/kakao/callback") public String kakaoCallback(String code)
+		 * {
+		 * 
+		 * userService.kakao회원처리( userService.user정보받기( userService.kakao토큰받기(code)));
+		 * 
+		 * 
+		 * return "redirect:/"; }
+		 */
 }
